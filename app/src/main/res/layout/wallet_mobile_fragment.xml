@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:scrollbars="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/balancelayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        >
+        <Button
+            android:id="@+id/mbalance"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/balance_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_balance"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topuplayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+
+        >
+
+        <Button
+            android:id="@+id/topup"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/topup_icon"
+            android:onClick="topUp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_mobile_card"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/senfmoneylayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        >
+
+        <Button
+            android:id="@+id/mtranfer"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/send_money_icon" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_send_money"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paybilllayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/balancelayout"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+
+        <Button
+            android:id="@+id/transaction"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/wallet_statement"
+            android:onClick="miniTransaction"
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_show_transaction"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/withdrawmoneylayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senfmoneylayout"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/mwithdraw"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/withdraw_cash_icon"
+
+            />
+
+
+        <TextView
+            android:layout_width="86dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_withdraw_money"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/localremittanceayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senfmoneylayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/nonregistered"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/localremittanceayout"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/remittance_icon"
+            android:onClick="sendToNonRegistered" />
+
+        <TextView
+            android:layout_width="99dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/wallet_local_remitance"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/showtransactionayout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/withdrawmoneylayout"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/bill_payment"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/paybilllayout"
+            android:layout_gravity="center"
+            android:background="@drawable/bill_pay" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/paybilllayout"
+            android:layout_gravity="center"
+            android:text="@string/wallet_pay_bill"
+            android:textAlignment="center" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/merchant_payment_layout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/withdrawmoneylayout"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/merchant_payment"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shopping"
+            android:onClick="miniTransaction"
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/merchat_payments"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

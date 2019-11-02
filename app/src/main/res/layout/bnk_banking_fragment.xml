@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:scrollbars="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/balancelayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/bnkbalance"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/balance_icon" />
+
+        <TextView  android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bank_balance"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topuplayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:id="@+id/bnkac2ac"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ac_to_ac"
+            android:layout_gravity="center"
+            />
+
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/ac2ac"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/senfmoneylayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/balancelayout"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/bnkbanktowalet"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bank_to_wallet_transfer" />
+
+
+        <TextView  android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bnk_bank_to_wallet_transfer"
+
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/paybilllayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/balancelayout"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:id="@+id/bnkwalettobank"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/wallet_to_bank_account" />
+
+        <TextView  android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/bnk_Walet_to_bank"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/withdrawmoneylayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senfmoneylayout"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:id="@+id/bnktoAother"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/walet_to_athers_bank_account" />
+
+        <TextView  android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bnk_Wallet_bank_transfer"
+
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/localremittanceayout"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senfmoneylayout"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:id="@+id/bnkshotrn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bank_mini_statement" />
+
+        <TextView  android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bnk_mini_statement"
+            android:textAlignment="center"
+            />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:scrollbars="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/telecomservice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <Button
+            android:id="@+id/mbalance"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignTop="@+id/balancelayout"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/tele_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="ETC Service"
+            android:textAlignment="center" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Call_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/telecomservice"
+        >
+
+        <Button
+            android:id="@+id/call_center_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/support_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="Call center"
+            android:textAlignment="center" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Reminder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/Call_center"
+      />
+
+</RelativeLayout>
