@@ -16,7 +16,6 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -24,6 +23,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity
     private TabLayout tabLayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
-    private Button mbalance,lang;
-    private static final  int  MY_PERMISSIONS_REQUEST_PHONE_CALL=0;
+    private Button mbalance, lang;
+    private static final int MY_PERMISSIONS_REQUEST_PHONE_CALL = 0;
     ShareActionProvider myShareActionProvider;
     private AdView mAdView;
 
@@ -61,69 +61,73 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // mAdView = findViewById(R.id.adView);
+
+
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
         });
 
-
-
-
-
-        mAdView=findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .build();
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-          mAdView.setAdListener(new AdListener(){
-              @Override
-              public void onAdLoaded() {
-                  // Code to be executed when an ad finishes loading.
-                  Toast.makeText(MainActivity.this, "Loaded", Toast.LENGTH_SHORT).show();
-              }
 
-              @Override
-              public void onAdFailedToLoad(int errorCode) {
-                  // Code to be executed when an ad request fails.
-                 // Toast.makeText(MainActivity.this, "Failed to Load", Toast.LENGTH_SHORT).show();
-              }
 
-              @Override
-              public void onAdClicked() {
-                  // Code to be executed when the user clicks on an ad.
-                 // Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
-              }
-
-              @Override
-              public void onAdLeftApplication() {
-                  // Code to be executed when the user has left the app.
-
-              }
-
-              @Override
-              public void onAdClosed() {
-                  // Code to be executed when the user is about to return
-                  // to the app after tapping on an ad.
-              }
+//        AdRequest adRequest = new AdRequest.Builder()
+//                .build();
+//        mAdView.loadAd(adRequest);
 
 
 
 
-          });
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Toast.makeText(MainActivity.this, "Loaded", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+                 Toast.makeText(MainActivity.this, "Failed to Load", Toast.LENGTH_SHORT).show();
+            }
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+                // Toast.makeText(MainActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+
+        });
         //============
-        tabLayout=findViewById(R.id.tablayout);
-        appBarLayout=findViewById(R.id.appbar);
-        viewPager=findViewById(R.id.vpager);
+        tabLayout = findViewById(R.id.tablayout);
+        appBarLayout = findViewById(R.id.appbar);
+        viewPager = findViewById(R.id.vpager);
         //setting adapter
-        String mobilemoney=getResources().getString(R.string.wallet_money);
-        String coopbanking=getResources().getString(R.string.coopbank);
+        String mobilemoney = getResources().getString(R.string.wallet_money);
+        String coopbanking = getResources().getString(R.string.coopbank);
 
-        ViewPagerAdapter adapter=new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-       // MobileMoneyFragment myfragment=new
-        adapter.addFragment(new MobileMoneyFragment().fragmentSet(this),mobilemoney);
-        adapter.addFragment(new CoopBankingFragment(),coopbanking);
-       // adapter.addFragment(new TelecomServiceFragment(),"Other Services");
+        // MobileMoneyFragment myfragment=new
+        adapter.addFragment(new MobileMoneyFragment().fragmentSet(this), mobilemoney);
+        adapter.addFragment(new CoopBankingFragment(), coopbanking);
+        // adapter.addFragment(new TelecomServiceFragment(),"Other Services");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
@@ -133,10 +137,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -144,12 +147,11 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CALL_PHONE)) {
 
-            }
-            else {
+            } else {
                 // No explanation needed; request the permission
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.CALL_PHONE},
@@ -159,7 +161,6 @@ public class MainActivity extends AppCompatActivity
             return;
 
         }
-
 
 
     }
@@ -180,8 +181,8 @@ public class MainActivity extends AppCompatActivity
         // Inflate menu resource file.
         getMenuInflater().inflate(R.menu.share_menu, menu);
 
-       // MenuItem shareItem = menu.findItem(R.id.action_share);
-      //  myShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+        // MenuItem shareItem = menu.findItem(R.id.action_share);
+        //  myShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
 
         // Return true to display menu
 
@@ -216,24 +217,19 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.pinchange) {
             new AppSetting(this).chagePINCode();
-            }
-        else if (id == R.id.bt) {
+        } else if (id == R.id.bt) {
             new AppSetting(this).blockTransaction();
-            }
-        else if (id == R.id.ussd_lan_setting) {
+        } else if (id == R.id.ussd_lan_setting) {
             new AppSetting(this).changeUSSDLanguage();
 
-            }
-        else if (id == R.id.lostphone) {
+        } else if (id == R.id.lostphone) {
             new AppSetting(this).lostPhoneReport();
-         }
-        else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_share) {
 
 
         } else if (id == R.id.nav_send) {
 
-        }
-        else if(id==R.id.language){
+        } else if (id == R.id.language) {
             new AppSetting(this).changeAppLanguage();
 
         }
@@ -241,6 +237,7 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -261,7 +258,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void changeLanguage(String language){
+    public void changeLanguage(String language) {
         Resources resources = getResources();
         locale = new Locale(language);
         Configuration configuration = resources.getConfiguration();
@@ -275,10 +272,10 @@ public class MainActivity extends AppCompatActivity
         recreate();
     }
 
-    public void sendUSSD(String ussd){
-        Intent callintent=new Intent(Intent.ACTION_CALL);
-        callintent.setData(Uri.parse(Uri.parse("tel:" + ussd)+Uri.encode("#")));
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+    public void sendUSSD(String ussd) {
+        Intent callintent = new Intent(Intent.ACTION_CALL);
+        callintent.setData(Uri.parse(Uri.parse("tel:" + ussd) + Uri.encode("#")));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             return;
         }
         startActivity(callintent);
@@ -290,11 +287,10 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void callEbirrSupport(View v){
+    public void callEbirrSupport(View v) {
 
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "6836"));
         //startActivity(intent);
-
 
 
     }

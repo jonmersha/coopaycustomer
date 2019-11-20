@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name="com.hira.coopay.firebase.FireBaseFCM">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <activity
             android:name=".TelecomService"
             android:label="@string/title_activity_telecom_service"></activity>

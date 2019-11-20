@@ -1,11 +1,34 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+
+    def multidex_version = "2.0.1"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    //Fre base Library ==============
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+
+
+    implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+}
 android {
     signingConfigs {
         config {
             keyAlias 'coopkey'
             keyPassword '123joni'
-            storeFile file('/Users/jon/Desktop/project/AndroidPRoject/Coopaycustomer/key')
+            storeFile file('/Users/ayn3/AndroidStudioProjects/coopaycustomer/key')
             storePassword '123joni'
         }
     }
@@ -18,10 +41,6 @@ android {
         versionCode 14
         versionName "1.1.4"
         multiDexEnabled true
-
-
-
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
         vectorDrawables.useSupportLibrary = true
@@ -40,27 +59,8 @@ android {
     }
 }
 
-dependencies {
-
-    def multidex_version = "2.0.1"
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.android.gms:play-services-ads-lite:18.2.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation "androidx.multidex:multidex:$multidex_version"
-
-    implementation 'com.google.firebase:firebase-analytics:17.2.1'
-
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.google.firebase:firebase-firestore:21.2.1'
+apply plugin: 'com.google.gms.google-services'
 
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 
-}
