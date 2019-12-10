@@ -99,6 +99,7 @@
     <string name="partial_payment">Partial Payment</string>
     <string name="invoice_number">Invoice Number</string>
     <string name="bill_ref_number">Bill Refrence Number</string>
+    <string name="default_notification_channel_id" >Coopay Customer</string>
 
 
 </resources>
