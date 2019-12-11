@@ -72,8 +72,6 @@
             ads:adSize="BANNER"
             ads:adUnitId="ca-app-pub-1839280616909673/5221407135">
         </com.google.android.gms.ads.AdView>
-
-
     </LinearLayout>
 
 </RelativeLayout>

@@ -39,6 +39,7 @@ import com.hira.coopay.ViewPagerAdapter;
 import com.hira.coopay.customer.bank.CoopBankingFragment;
 import com.hira.coopay.customer.mobile.MobileMoneyFragment;
 import com.google.android.gms.ads.MobileAds;
+import com.hira.coopay.customer.telecom.TelecomServiceFragment;
 
 
 import java.util.Locale;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity
     private Button mbalance, lang;
     private static final int MY_PERMISSIONS_REQUEST_PHONE_CALL = 0;
     ShareActionProvider myShareActionProvider;
-    private AdView mAdView;
+    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +71,9 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        mAdView = findViewById(R.id.adView);
+        adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+        adView.loadAd(adRequest);
 
 
 
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        mAdView.setAdListener(new AdListener() {
+        adView.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity
         // MobileMoneyFragment myfragment=new
         adapter.addFragment(new MobileMoneyFragment().fragmentSet(this), mobilemoney);
         adapter.addFragment(new CoopBankingFragment(), coopbanking);
-        // adapter.addFragment(new TelecomServiceFragment(),"Other Services");
+        adapter.addFragment(new TelecomServiceFragment(),"Other Services");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
