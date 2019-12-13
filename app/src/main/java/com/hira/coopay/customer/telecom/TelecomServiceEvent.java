@@ -26,7 +26,7 @@ public class TelecomServiceEvent {
     //=====================================Mobile Balance request==============================//
     public void mBalanceRequest(){
         String ussd =String.format("*%s%s",804,Uri.encode("#"));
-       // telecomeService.callCenter(ussd);
+         telecomeService.callCenter(ussd);
     }
     //=====================================Send Mobile money==============================//
 
@@ -68,7 +68,7 @@ public class TelecomServiceEvent {
             @Override
             public void onClick(View v) {
                 String ussd =String.format("%s,%s,%s",8518,defaultlanguge,1);
-              //  telecomeService.callCenter(ussd);
+                telecomeService.callCenter(ussd);
 
             }
 
@@ -77,7 +77,7 @@ public class TelecomServiceEvent {
             @Override
             public void onClick(View v) {
                 String ussd =String.format("%s,%s,%s",8518,defaultlanguge,2);
-              //  telecomeService.callCenter(ussd);
+                telecomeService.callCenter(ussd);
 
             }
 
@@ -87,7 +87,7 @@ public class TelecomServiceEvent {
             @Override
             public void onClick(View v) {
                 String ussd =String.format("%s,%s,%s",8518,defaultlanguge,3);
-               // telecomeService.callCenter(ussd);
+                telecomeService.callCenter(ussd);
 
             }
 
@@ -96,7 +96,7 @@ public class TelecomServiceEvent {
             @Override
             public void onClick(View v) {
                 String ussd =String.format("%s,%s,%s",8518,defaultlanguge,4);
-              //  telecomeService.callCenter(ussd);
+                telecomeService.callCenter(ussd);
 
             }
 

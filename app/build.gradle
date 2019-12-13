@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 dependencies {
 
-    def multidex_version = "2.0.1"
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.0.0'
@@ -10,14 +9,13 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:18.3.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
-    implementation "androidx.multidex:multidex:$multidex_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     //Fre base Library ==============
     implementation 'com.google.firebase:firebase-analytics:17.2.1'
-    implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.0'
 
-
-    implementation 'com.google.firebase:firebase-messaging:20.0.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -39,8 +37,8 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
 
-        versionCode 15
-        versionName "1.1.5"
+        versionCode 16
+        versionName "1.1.6"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
@@ -52,10 +50,10 @@ android {
     }
     buildTypes {
         release {
-            //proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
+            proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
             signingConfig signingConfigs.config
             minifyEnabled = true
-            //renderscriptDebuggable = true
+            renderscriptDebuggable = true
         }
     }
 }

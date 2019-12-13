@@ -158,15 +158,10 @@ public class MainActivity extends AppCompatActivity
                         new String[]{Manifest.permission.CALL_PHONE},
                         MY_PERMISSIONS_REQUEST_PHONE_CALL);
             }
-
             return;
 
         }
-
-
     }
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -204,12 +199,9 @@ public class MainActivity extends AppCompatActivity
             myShareIntent.setType("image/*");
             myShareIntent.putExtra(Intent.EXTRA_STREAM, "myImageUri");
             myShareActionProvider.setShareIntent(myShareIntent);
-
         }
-
         return super.onOptionsItemSelected(item);
     }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -287,13 +279,10 @@ public class MainActivity extends AppCompatActivity
             myShareActionProvider.setShareIntent(shareIntent);
         }
     }
-
     public void callEbirrSupport(View v) {
 
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "6836"));
         //startActivity(intent);
-
-
     }
 
 
