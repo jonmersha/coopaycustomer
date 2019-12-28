@@ -47,7 +47,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:background="@drawable/topup_icon"
+            android:background="@drawable/top_app"
             android:onClick="topUp" />
 
 

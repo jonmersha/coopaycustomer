@@ -19,8 +19,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-
 }
 android {
     signingConfigs {
@@ -37,23 +35,21 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
 
-        versionCode 16
-        versionName "1.1.6"
+        versionCode 18
+        versionName "1.1.8"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
         vectorDrawables.useSupportLibrary = true
-
-
     }
     productFlavors {
     }
     buildTypes {
         release {
-            proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
+            //proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
             signingConfig signingConfigs.config
             minifyEnabled = true
-            renderscriptDebuggable = true
+           // renderscriptDebuggable = true
         }
     }
 }

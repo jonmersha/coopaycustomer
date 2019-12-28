@@ -1,39 +1,40 @@
 {
   "project_info": {
-    "project_number": "920103867785",
-    "firebase_url": "https://coopay-4658f.firebaseio.com",
-    "project_id": "coopay-4658f",
-    "storage_bucket": "coopay-4658f.appspot.com"
+    "project_number": "500493204551",
+    "firebase_url": "https://coopay-6897f.firebaseio.com",
+    "project_id": "coopay-6897f",
+    "storage_bucket": "coopay-6897f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:920103867785:android:dfe52c7ec3eb4e9bb43d58",
+        "mobilesdk_app_id": "1:500493204551:android:0788b7a5e62f8f0f680562",
         "android_client_info": {
           "package_name": "com.hira.coopay.customer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "920103867785-9lgju4pnq1j067h2j01gcl4qgh6cbhca.apps.googleusercontent.com",
+          "client_id": "500493204551-ie15d15q6qe98cl5apt719aihevj6hol.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBU7_MqbPGEtuGVOOHMgbDx-xQfrM_MC5Q"
+          "current_key": "AIzaSyA3SzB4Es7DNzi9c2CPR9aY4IG8xuMrSwQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "920103867785-9lgju4pnq1j067h2j01gcl4qgh6cbhca.apps.googleusercontent.com",
+              "client_id": "500493204551-ie15d15q6qe98cl5apt719aihevj6hol.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-1839280616909673~2852963353"
     }
   ],
   "configuration_version": "1"
