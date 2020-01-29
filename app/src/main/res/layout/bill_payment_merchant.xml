@@ -34,8 +34,7 @@
             android:layout_marginTop="20dp"
             android:hint="@string/merchant_id"
             android:inputType="number"
-            android:maxLength="6"
-
+            android:maxLength="7"
             android:id="@+id/merchant_bill_id"/>
         </com.google.android.material.textfield.TextInputLayout>
         <RelativeLayout
