@@ -109,6 +109,7 @@
     <string name="title_dashboard" translatable="false">Dashboard</string>
     <string name="title_notifications" translatable="false">Notifications</string>
     <string name="default_notification_channel_id" >Coopay Customer</string>
+    <string name="water_payments">Water Payment</string>
 
 
 </resources>

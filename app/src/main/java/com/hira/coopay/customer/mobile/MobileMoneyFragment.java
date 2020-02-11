@@ -36,6 +36,8 @@ public class MobileMoneyFragment extends Fragment {
 
     Button billPayment;
 
+    Button waterBill;
+
     public MainActivity act;
 
     public MobileMoneyFragment() {
@@ -62,6 +64,14 @@ public class MobileMoneyFragment extends Fragment {
         merchantPayment =view.findViewById(R.id.merchant_payment);
        // paymentInformation=view.findViewById(R.id.payment_information);
         billPayment=view.findViewById(R.id.bill_payment);
+        waterBill=view.findViewById((R.id.watter_payment));
+        waterBill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //return false;
+                new MobileMoneyEvent(view, MobileMoneyFragment.this).watterBill();
+            }
+        });
 
 
 

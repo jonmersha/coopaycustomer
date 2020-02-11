@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="partner_array">
+        <item>Please Select Company </item>
+        <item>Adama City</item>
+        <item>Amboo City</item>
+        <item>Walliso City</item>
+        <item>Nekemte City</item>
+    </string-array>
+</resources>

@@ -49,8 +49,6 @@
             android:layout_marginTop="5dp"
             android:background="@drawable/top_app"
             android:onClick="topUp" />
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -223,6 +221,32 @@
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:text="@string/merchat_payments"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/water_payment_layout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/withdrawmoneylayout"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/watter_payment"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:background="@drawable/water_bill"
+            android:onClick="waterBill"
+            android:paddingTop="10dp" />
+
+        <TextView
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="@string/water_payments"
             android:textAlignment="center" />
     </LinearLayout>
 

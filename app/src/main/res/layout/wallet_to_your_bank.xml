@@ -27,7 +27,7 @@
             android:paddingLeft="10dp"
             android:layout_alignParentBottom="true"
             android:textColor="#fff"
-            />
+            android:paddingStart="10dp" />
 
 
     </RelativeLayout>

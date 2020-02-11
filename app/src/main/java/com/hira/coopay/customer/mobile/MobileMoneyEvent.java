@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.hira.coopay.customer.R;
 
@@ -419,5 +420,37 @@ public class MobileMoneyEvent {
     }
 
 
+    public void watterBill() {
 
+        LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
+        View promptView = layoutInflater.inflate(R.layout.water_payment, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+        alertDialogBuilder.setView(promptView);
+        final EditText pinNumber =  promptView.findViewById(R.id.pinnumber);
+        final EditText refNumber =  promptView.findViewById(R.id.ref_number);
+        final Spinner agency=promptView.findViewById(R.id.agency);
+
+        //final TextView tv=promptView.findViewById(R.id.tvpinid);
+       // tv.setText(R.string.wallet_balance_com);
+        // setup a dialog window
+
+        alertDialogBuilder.setCancelable(false)
+
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                      //  String pass=editText.getText().toString();
+                      //  String ussd= String.format("*%s*%s*%s%s",841,pass,1,Uri.encode("#"));
+                      //  mobileMoney.sendUSSD(ussd);
+                    }
+                })
+                .setNegativeButton(R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
 }

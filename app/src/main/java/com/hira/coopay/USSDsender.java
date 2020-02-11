@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.view.View;
+
 import androidx.core.app.ActivityCompat;
 
 public  class USSDsender extends Activity{
@@ -18,4 +20,5 @@ public  class USSDsender extends Activity{
        startActivity(callintent);
 
     }
+
 }
