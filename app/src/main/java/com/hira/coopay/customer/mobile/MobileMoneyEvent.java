@@ -6,10 +6,14 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.hira.coopay.customer.R;
 
 public class MobileMoneyEvent {
@@ -423,16 +427,26 @@ public class MobileMoneyEvent {
     public void watterBill() {
 
         LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
-        View promptView = layoutInflater.inflate(R.layout.water_payment, null);
+        final View promptView = layoutInflater.inflate(R.layout.water_payment, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
         alertDialogBuilder.setView(promptView);
-        final EditText pinNumber =  promptView.findViewById(R.id.pinnumber);
-        final EditText refNumber =  promptView.findViewById(R.id.ref_number);
-        final Spinner agency=promptView.findViewById(R.id.agency);
 
-        //final TextView tv=promptView.findViewById(R.id.tvpinid);
-       // tv.setText(R.string.wallet_balance_com);
-        // setup a dialog window
+        final EditText pinNumber =  promptView.findViewById(R.id.mypin);
+
+
+
+
+
+
+
+
+
+        final Spinner agency=promptView.findViewById(R.id.agency);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(promptView.getContext(),
+                R.array.agency, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        agency.setAdapter(adapter);
 
         alertDialogBuilder.setCancelable(false)
 
@@ -440,7 +454,37 @@ public class MobileMoneyEvent {
                     public void onClick(DialogInterface dialog, int id) {
                       //  String pass=editText.getText().toString();
                       //  String ussd= String.format("*%s*%s*%s%s",841,pass,1,Uri.encode("#"));
-                      //  mobileMoney.sendUSSD(ussd);
+                        String USSD_TEXT="";
+
+                        int selected_id=agency.getSelectedItemPosition();
+                        String pos_values=agency.getItemAtPosition(selected_id).toString();
+                       if(pos_values.equals("Adama City")){
+
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,2,1,2,Uri.encode("#"));
+
+                           mobileMoney.sendUSSD(USSD_TEXT);
+
+                          Toast.makeText(promptView.getContext(), "Selection"+USSD_TEXT, Toast.LENGTH_SHORT).show();
+
+                       }
+                       else if(pos_values.equals("Amboo City")){
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,6,2,2,Uri.encode("#"));
+
+                           mobileMoney.sendUSSD(USSD_TEXT);
+
+
+                           //Toast.makeText(promptView.getContext(), "Selection "+pos_values, Toast.LENGTH_SHORT).show();
+
+                        }
+                        else if(pos_values.equals("Walliso City")){
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,6,1,2,Uri.encode("#"));
+                           mobileMoney.sendUSSD(USSD_TEXT);
+                        }
+                        else{
+                           Toast.makeText(promptView.getContext(), "Invalid Selection", Toast.LENGTH_SHORT).show();
+                       }
+
+                     // mobileMoney.sendUSSD(USSD_TEXT);
                     }
                 })
                 .setNegativeButton(R.string.cancel,

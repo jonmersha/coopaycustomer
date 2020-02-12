@@ -43,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
     <EditText
-        android:id="@+id/pinnumber"
+        android:id="@+id/mypin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/comm_pin_code"
@@ -55,85 +55,9 @@
             <Spinner
                 android:id="@+id/agency"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="60dp"
+                android:spinnerMode="dialog"
                 />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3">
-
-                    <EditText
-                        android:id="@+id/ref_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/bill_ref_number"
-                        android:inputType="text"
-                        android:padding="20dp"
-
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:text="Bill Info"
-                    android:textColor="#fff"
-                    android:layout_weight="1"
-                    android:textAllCaps="false"
-                    android:background="@color/cyanblue"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/fp"
-                        android:text="Full Payment"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/pp"
-                        android:text="Partial Payment"/>
-                </RadioGroup>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:orientation="horizontal">
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/fwallet"
-                        android:text="From Wallet"/>
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:id="@+id/faccount"
-                        android:text="From Account"/>
-                </RadioGroup>
-            </LinearLayout>
 
 
 
