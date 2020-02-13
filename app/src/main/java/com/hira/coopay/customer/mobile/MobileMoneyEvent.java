@@ -443,7 +443,7 @@ public class MobileMoneyEvent {
 
         final Spinner agency=promptView.findViewById(R.id.agency);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(promptView.getContext(),
-                R.array.agency, android.R.layout.simple_spinner_item);
+                R.array.agency, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         agency.setAdapter(adapter);
@@ -464,14 +464,13 @@ public class MobileMoneyEvent {
 
                            mobileMoney.sendUSSD(USSD_TEXT);
 
-                          Toast.makeText(promptView.getContext(), "Selection"+USSD_TEXT, Toast.LENGTH_SHORT).show();
+                          ///Toast.makeText(promptView.getContext(), "Selection"+USSD_TEXT, Toast.LENGTH_SHORT).show();
 
                        }
                        else if(pos_values.equals("Amboo City")){
                            USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,6,2,2,Uri.encode("#"));
 
                            mobileMoney.sendUSSD(USSD_TEXT);
-
 
                            //Toast.makeText(promptView.getContext(), "Selection "+pos_values, Toast.LENGTH_SHORT).show();
 

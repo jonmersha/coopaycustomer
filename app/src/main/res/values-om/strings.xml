@@ -99,6 +99,7 @@
     <string name="bill_ref_number">Bill Refrence Number</string>
     <string name="default_notification_channel_id" >Coopay Customer</string>
     <string name="water_payments">Water Payment</string>
+    <string name="woter_payment">Water Payment</string>
 
 
 </resources>

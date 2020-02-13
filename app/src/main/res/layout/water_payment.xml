@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:background="#383737"
         android:paddingLeft="10dp"
-        android:text="@string/bnk_bank_to_wallet_transfer"
+        android:text="@string/woter_payment"
         android:textColor="#fff"
         />
             <com.google.android.material.textfield.TextInputLayout
@@ -56,11 +56,10 @@
                 android:id="@+id/agency"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:spinnerMode="dialog"
+                android:dropDownWidth="match_parent"
+                android:spinnerMode="dropdown"
+                android:background="@drawable/spinerbg"
                 />
-
-
-
 </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

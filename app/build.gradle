@@ -29,14 +29,14 @@ android {
             storePassword '123joni'
         }
     }
-    compileSdkVersion 29
+    compileSdkVersion 28
     defaultConfig {
         applicationId "com.hira.coopay.customer"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 28
 
-        versionCode 20
-        versionName "1.2.0"
+        versionCode 21
+        versionName "1.2.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.config
@@ -46,17 +46,14 @@ android {
     }
     buildTypes {
         release {
-            //proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
+            proguardFiles 'proguard-rules.pro', getDefaultProguardFile('proguard-android.txt')
             signingConfig signingConfigs.config
             minifyEnabled = true
            // renderscriptDebuggable = true
         }
     }
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-    }
-    buildToolsVersion = '29.0.2'
+
+    //buildToolsVersion = '29.0.2'
 }
 
 apply plugin: 'com.google.gms.google-services'
