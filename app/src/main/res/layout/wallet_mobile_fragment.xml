@@ -178,12 +178,12 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical">
         <Button
-            android:id="@+id/bill_payment"
+            android:id="@+id/traffic_pennality"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_alignTop="@+id/paybilllayout"
             android:layout_gravity="center"
-            android:background="@drawable/bill_pay" />
+            android:background="@drawable/traffic_penality" />
 
 
         <TextView
@@ -191,7 +191,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/paybilllayout"
             android:layout_gravity="center"
-            android:text="@string/wallet_pay_bill"
+            android:text="@string/traffic_penality"
             android:textAlignment="center" />
 
 

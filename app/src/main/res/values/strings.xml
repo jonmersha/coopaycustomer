@@ -111,6 +111,11 @@
     <string name="default_notification_channel_id" >Coopay Customer</string>
     <string name="water_payments">Water Payment</string>
     <string name="woter_payment">Water Payment</string>
+    <string name="traffic_penality_payment">Addis Ababa Traffic Penality Payment</string>
+    <string name="traffic_penality">Trafic Penality</string>
+    <string name="coopayebirr">coopay e-birr</string>
+    <string name="query_bill_info">Query Bill info</string>
+    <string name="ds_tv">DS TV Payment</string>
 
 
 </resources>

@@ -39,7 +39,7 @@ import com.hira.coopay.ViewPagerAdapter;
 import com.hira.coopay.customer.bank.CoopBankingFragment;
 import com.hira.coopay.customer.mobile.MobileMoneyFragment;
 import com.google.android.gms.ads.MobileAds;
-import com.hira.coopay.customer.telecom.TelecomServiceFragment;
+import com.hira.coopay.customer.other_service.OtherService;
 
 
 import java.util.Locale;
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity
         // MobileMoneyFragment myfragment=new
         adapter.addFragment(new MobileMoneyFragment().fragmentSet(this), mobilemoney);
         adapter.addFragment(new CoopBankingFragment(), coopbanking);
-        adapter.addFragment(new TelecomServiceFragment(),"Other Services");
+        adapter.addFragment(new OtherService(),"Other Services");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

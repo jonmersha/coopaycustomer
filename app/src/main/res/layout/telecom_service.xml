@@ -63,13 +63,34 @@
 
 
     </LinearLayout>
-
     <LinearLayout
-        android:id="@+id/Reminder"
-        android:layout_width="match_parent"
+        android:id="@+id/dstv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_below="@+id/Call_center"
-      />
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/Call_center"
+        >
+
+        <Button
+            android:id="@+id/btn_ds_tv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/dstv" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:text="DS TV"
+            android:textAlignment="center" />
+
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

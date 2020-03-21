@@ -239,6 +239,7 @@ public class MobileMoneyEvent {
     }
     //====================================Mobile TopUP==============================//
     public void topUp(){
+
         LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
         View promptView = layoutInflater.inflate(R.layout.wallet_topup, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
@@ -310,6 +311,33 @@ public class MobileMoneyEvent {
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
 
+    }
+    public void topUpNew(){
+        LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
+        View promptView = layoutInflater.inflate(R.layout.wallet_topup_new, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+        alertDialogBuilder.setView(promptView);
+        final EditText pinn_number = (EditText) promptView.findViewById(R.id.pin_number);
+        alertDialogBuilder.setCancelable(false)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+
+                    String message;
+
+                    public void onClick(DialogInterface dialog, int id) {
+                        String pass=pinn_number.getText().toString();
+                        String ussd=String.format("*%s*%s*%s%s",841,pass,6,Uri.encode("#"));
+                        mobileMoney.sendUSSD(ussd);
+                    }
+                })
+                .setNegativeButton(R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
     }
     //====================================MtoNonCustomer==============================//
     public void toNonCustomer(){
@@ -434,13 +462,6 @@ public class MobileMoneyEvent {
         final EditText pinNumber =  promptView.findViewById(R.id.mypin);
 
 
-
-
-
-
-
-
-
         final Spinner agency=promptView.findViewById(R.id.agency);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(promptView.getContext(),
                 R.array.agency, R.layout.spinner_item);
@@ -496,4 +517,84 @@ public class MobileMoneyEvent {
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
+
+    public void trafficPenality() {
+
+
+        LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
+        final View promptView = layoutInflater.inflate(R.layout.trafic_penality_payment, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
+        alertDialogBuilder.setView(promptView);
+
+        final EditText pinNumber =  promptView.findViewById(R.id.traffic_pin_number);
+        final RadioButton bill_info_query=promptView.findViewById(R.id.traffic_bill_info_request);
+        final RadioButton full_payment=promptView.findViewById(R.id.traffic_full_pay);
+        final RadioButton partial_payment=promptView.findViewById(R.id.traffic_partial_pay);
+
+        final String[] request_type = {"bill_info"};
+
+        bill_info_query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                request_type[0] ="bill_info";
+
+            }
+        });
+        full_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                request_type[0] ="full_pay";
+
+            }
+        });
+        partial_payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                request_type[0] ="partial_pay";
+
+            }
+        });
+        alertDialogBuilder.setCancelable(false)
+
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        String USSD_TEXT="";
+
+                        if(request_type[0].equals("bill_info")){
+
+                            USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,7,1,Uri.encode("#"));
+                            mobileMoney.sendUSSD(USSD_TEXT);
+
+                        }
+                        else if(request_type[0].equals("full_pay")){
+                            USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,7,2,Uri.encode("#"));
+                            mobileMoney.sendUSSD(USSD_TEXT);
+
+
+
+                        }
+                        else {
+                            USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,7,3,Uri.encode("#"));
+                            mobileMoney.sendUSSD(USSD_TEXT);
+                        }
+
+
+
+                    }
+                })
+                .setNegativeButton(R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+
+
+
+    }
+
 }

@@ -34,7 +34,8 @@ public class MobileMoneyFragment extends Fragment {
 
     Button merchantPayment;
 
-    Button billPayment;
+   // Button billPayment;
+    Button traffic_penality;
 
     Button waterBill;
 
@@ -63,7 +64,8 @@ public class MobileMoneyFragment extends Fragment {
 
         merchantPayment =view.findViewById(R.id.merchant_payment);
        // paymentInformation=view.findViewById(R.id.payment_information);
-        billPayment=view.findViewById(R.id.bill_payment);
+       // billPayment=view.findViewById(R.id.bill_payment);
+        traffic_penality=view.findViewById(R.id.traffic_pennality);
         waterBill=view.findViewById((R.id.watter_payment));
         waterBill.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +110,8 @@ public class MobileMoneyFragment extends Fragment {
         topUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new MobileMoneyEvent(view, MobileMoneyFragment.this).topUp();
+               // new MobileMoneyEvent(view, MobileMoneyFragment.this).topUp();
+                new MobileMoneyEvent(view, MobileMoneyFragment.this).topUpNew();
 
             }
         });
@@ -127,20 +130,39 @@ public class MobileMoneyFragment extends Fragment {
         });
 
 
-        billPayment.setOnClickListener(new View.OnClickListener() {
+//        billPayment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                DialogFragment dialog=new BillPaymentTab().setValues(act);
+//                dialog.setCancelable(true);
+//                dialog.show(getChildFragmentManager(),"PaymentMenu");
+//
+//            }
+//        });
+//
+//
+//        return view;
+//    }
+
+        traffic_penality.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                DialogFragment dialog=new BillPaymentTab().setValues(act);
-                dialog.setCancelable(true);
-                dialog.show(getChildFragmentManager(),"PaymentMenu");
-
+//                DialogFragment dialog=new BillPaymentTab().setValues(act);
+//                dialog.setCancelable(true);
+//                dialog.show(getChildFragmentManager(),"PaymentMenu");
+                new MobileMoneyEvent(view, MobileMoneyFragment.this).trafficPenality();
             }
         });
+
+
         return view;
     }
 
 
+
+//traffic_pennality
 
     public void sendUSSD(String ussd){
         Intent callintent=new Intent(Intent.ACTION_CALL);
