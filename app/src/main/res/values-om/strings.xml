@@ -105,6 +105,13 @@
     <string name="coopayebirr">coopay e-birr</string>
     <string name="query_bill_info">Query Bill info</string>
     <string name="ds_tv">DS TV Payment</string>
+    <string name="premium">Premium</string>
+    <string name="compact">Compact</string>
+    <string name="family">Family</string>
+    <string name="access" />
+    <string name="acces">Access</string>
+    <string name="from_bank">From Bank</string>
+    <string name="from_wallet">From Wallet</string>
 
 
 </resources>

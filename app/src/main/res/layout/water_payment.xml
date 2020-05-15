@@ -60,6 +60,27 @@
                 android:spinnerMode="dropdown"
                 android:background="@drawable/spinerbg"
                 />
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <RadioButton
+                    android:id="@+id/water_bill_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Bill Info"
+                    />
+                <RadioButton
+                    android:id="@+id/water_pay_info"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Full Payment"
+
+                    />
+            </RadioGroup>
 </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

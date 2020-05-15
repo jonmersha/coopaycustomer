@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">COOPay</string>
+    <string name="app_name">Coopay</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">COOPay Customer</string>
@@ -116,6 +116,16 @@
     <string name="coopayebirr">coopay e-birr</string>
     <string name="query_bill_info">Query Bill info</string>
     <string name="ds_tv">DS TV Payment</string>
+    <string name="pay_amount">Amount</string>
+    <string name="premium">Premium</string>
+    <string name="compuact_pluse">Compact Pluse</string>
+    <string name="compuact_plus">Compact +</string>
+    <string name="compact">Compact</string>
+    <string name="family">Family</string>
+    <string name="access" />
+    <string name="acces">Access</string>
+    <string name="from_bank">From Bank</string>
+    <string name="from_wallet">From Wallet</string>
 
 
 </resources>

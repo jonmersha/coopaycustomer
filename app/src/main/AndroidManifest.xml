@@ -7,7 +7,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_new"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
@@ -16,9 +16,10 @@
             android:name="com.hira.coopay.firebase.FCMservice"
             android:enabled="true"
             android:exported="true">
-
-
         </service>
+
+
+
 
         <activity
             android:name=".TelecomService"
@@ -26,7 +27,6 @@
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

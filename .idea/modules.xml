@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="coopaycustomer/app" />
       <module fileurl="file://$PROJECT_DIR$/coopaycustomer.iml" filepath="$PROJECT_DIR$/coopaycustomer.iml" group="coopaycustomer" />
+      <module fileurl="file://$PROJECT_DIR$/gebeta/.android/Flutter/flutter.iml" filepath="$PROJECT_DIR$/gebeta/.android/Flutter/flutter.iml" group="coopaycustomer/flutter" />
+      <module fileurl="file://$USER_HOME$/Desdktop/gebeta_module/flutter_module/flutter_module.iml" filepath="$USER_HOME$/Desdktop/gebeta_module/flutter_module/flutter_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FlutterMerchant/merchant/gebeta_module/gebeta_module.iml" filepath="$PROJECT_DIR$/../FlutterMerchant/merchant/gebeta_module/gebeta_module.iml" />
     </modules>
   </component>
 </project>

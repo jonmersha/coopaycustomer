@@ -51,10 +51,48 @@
                 android:inputType="numberPassword"
                 />
         </com.google.android.material.textfield.TextInputLayout>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+                <RadioButton
+                    android:id="@+id/premium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/premium"
+                    android:selectAllOnFocus="true"
+                    />
+                <RadioButton
+                    android:id="@+id/comact_pluse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/compuact_plus"
+                    />
+                <RadioButton
+                    android:id="@+id/compact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/compact"
+                    />
+                <RadioButton
+                    android:id="@+id/family"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/family"
+                    />
+                <RadioButton
+                    android:id="@+id/access"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/acces"
+
+                    />
+            </RadioGroup>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
                 <EditText
                 android:id="@+id/card_number"
                 android:layout_width="fill_parent"
@@ -64,7 +102,39 @@
                 android:inputType="number"
                 android:maxLength="7"
                 />
+            </com.google.android.material.textfield.TextInputLayout><com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                android:id="@+id/card_payamount"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/pay_amount"
+                android:padding="10dp"
+                android:inputType="number"
+                android:maxLength="7"
+                />
             </com.google.android.material.textfield.TextInputLayout>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/from_wallet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from_wallet"
+                    />
+                <RadioButton
+                    android:id="@+id/from_bank"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/from_bank"
+
+                    />
+            </RadioGroup>
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

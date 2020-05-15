@@ -16,7 +16,7 @@ public class FCMservice extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
+        //Log.d(TAG, "From: " + remoteMessage.getFrom());
         if (remoteMessage.getData().size() > 0) {
             Log.d("MyFire", "Message data payload: " + remoteMessage.getData());
 
@@ -38,7 +38,6 @@ public class FCMservice extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
-
         Log.d("NewTokenReceived", "Refreshed token: " + s);
         //sendRegistrationToServer(token);
     }

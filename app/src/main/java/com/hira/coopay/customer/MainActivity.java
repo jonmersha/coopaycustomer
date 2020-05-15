@@ -44,6 +44,8 @@ import com.hira.coopay.customer.other_service.OtherService;
 
 import java.util.Locale;
 
+import io.flutter.view.FlutterView;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -62,8 +64,6 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       // mAdView = findViewById(R.id.adView);
-
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -161,6 +161,8 @@ public class MainActivity extends AppCompatActivity
             return;
 
         }
+
+       // View flutterView=Flutter.createView();
     }
     @Override
     public void onBackPressed() {
@@ -218,11 +220,36 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.lostphone) {
             new AppSetting(this).lostPhoneReport();
         } else if (id == R.id.nav_share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+
+            String shareLink="https://play.google.com/store/apps/details?id=com.hira.coopay.customer&hl=en";
+            sendIntent.putExtra(Intent.EXTRA_TEXT, shareLink);
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
 
 
         } else if (id == R.id.nav_send) {
 
-        } else if (id == R.id.language) {
+        }
+        else if (id==R.id.action_share){
+
+            Toast.makeText(this, "share menu clicked", Toast.LENGTH_SHORT).show();
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+
+            String shareLink="https://play.google.com/store/apps/details?id=com.hira.coopay.customer&hl=en";
+            sendIntent.putExtra(Intent.EXTRA_TEXT, shareLink);
+            sendIntent.setType("text/plain");
+
+            Intent shareIntent = Intent.createChooser(sendIntent, null);
+            startActivity(shareIntent);
+
+
+        }
+        else if (id == R.id.language) {
             new AppSetting(this).changeAppLanguage();
 
         }

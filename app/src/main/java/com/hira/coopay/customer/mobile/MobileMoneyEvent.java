@@ -19,6 +19,7 @@ import com.hira.coopay.customer.R;
 public class MobileMoneyEvent {
     View view;
     MobileMoneyFragment mobileMoney;
+    int water_bill_flag=2;
 
     public MobileMoneyEvent(View view, MobileMoneyFragment mobileMoney) {
         this.view = view;
@@ -342,35 +343,34 @@ public class MobileMoneyEvent {
     //====================================MtoNonCustomer==============================//
     public void toNonCustomer(){
         LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
-        View promptView = layoutInflater.inflate(R.layout.wallet_send_noncustomer, null);
+        View promptView = layoutInflater.inflate(R.layout.wallet_send_noncustomer_current, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
         alertDialogBuilder.setView(promptView);
 
-
         final EditText PIN = (EditText) promptView.findViewById(R.id.pinnumber);
         final EditText customerNumber = (EditText) promptView.findViewById(R.id.frendno);
-        final EditText customerName = (EditText) promptView.findViewById(R.id.non_customer_customerName);
-        final EditText customerAddress = (EditText) promptView.findViewById(R.id.cusaddr);
-        final EditText amount = (EditText) promptView.findViewById(R.id.amounttosend);
+//        final EditText customerName = (EditText) promptView.findViewById(R.id.non_customer_customerName);
+//        final EditText customerAddress = (EditText) promptView.findViewById(R.id.cusaddr);
+//        final EditText amount = (EditText) promptView.findViewById(R.id.amounttosend);
 
 
-        final boolean[] selfdeduction = {false};
-        final RadioButton self=promptView.findViewById(R.id.self);
-        final RadioButton friend=promptView.findViewById(R.id.friend);
-        friend.setSelected(true);
-
-        self.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selfdeduction[0] =true;
-            }
-        });
-        friend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selfdeduction[0] =false;
-            }
-        });
+//        final boolean[] selfdeduction = {false};
+//        final RadioButton self=promptView.findViewById(R.id.self);
+//        final RadioButton friend=promptView.findViewById(R.id.friend);
+//        friend.setSelected(true);
+//
+//        self.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selfdeduction[0] =true;
+//            }
+//        });
+//        friend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selfdeduction[0] =false;
+//            }
+//        });
 
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
@@ -382,32 +382,33 @@ public class MobileMoneyEvent {
                         String pass=PIN.getText().toString();
 
                         String receivingCustomerMobile=customerNumber.getText().toString();
-                        int amountTosend=0;
-                        try {
-                            amountTosend = Integer.parseInt(amount.getText().toString());
+//                        int amountTosend=0;
+//                        try {
+//                            amountTosend = Integer.parseInt(amount.getText().toString());
+//
+//                        }
+//                        catch (Exception e){
+//                            amountTosend=0;
+//
+//                        }
 
-                        }
-                        catch (Exception e){
-                            amountTosend=0;
+                        //String receivingCustomerAddr=customerAddress.getText().toString();
+                       // String receivingCustomerName=customerName.getText().toString();
 
-                        }
+                       // int deductionValue=2;
 
-                        String receivingCustomerAddr=customerAddress.getText().toString();
-                        String receivingCustomerName=customerName.getText().toString();
+//                        if(selfdeduction[0]){
+//                            deductionValue=1;
+//                           // message=String.format("You  are about to send Birr %s\n to Customer name %s \n with Phone Number %s \n and receiver Address  %s transfer cost will be deducted from your account; \n To Confirm Transaction please Click ok",amountTosend,receivingCustomerName,receivingCustomerMobile,receivingCustomerAddr);
+//                        }
+//                        else{
+//                            deductionValue=2;
+//                           // message=String.format("You are about to send Birr %s\n to Customer name %s \n with Phone Number %s \n and receiver Address  %s transfer cost will be deducted from your account;\n To Confirm Transaction please Click ok",amountTosend,receivingCustomerName,receivingCustomerMobile,receivingCustomerAddr);
+//                        }
 
-                        int deductionValue=2;
-
-                        if(selfdeduction[0]){
-                            deductionValue=1;
-                            message=String.format("You  are about to send Birr %s\n to Customer name %s \n with Phone Number %s \n and receiver Address  %s transfer cost will be deducted from your account; \n To Confirm Transaction please Click ok",amountTosend,receivingCustomerName,receivingCustomerMobile,receivingCustomerAddr);
-                        }
-                        else{
-                            deductionValue=2;
-                            message=String.format("You are about to send Birr %s\n to Customer name %s \n with Phone Number %s \n and receiver Address  %s transfer cost will be deducted from your account;\n To Confirm Transaction please Click ok",amountTosend,receivingCustomerName,receivingCustomerMobile,receivingCustomerAddr);
-                        }
-
-                        String ussd=String.format("*%s*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pass,9,receivingCustomerMobile,receivingCustomerName,receivingCustomerAddr,amountTosend,deductionValue,1,Uri.encode("#"));
-                        confirmationMessage(ussd,message);
+                        String ussd=String.format("*%s*%s*%s*%s%s",841,pass,9,receivingCustomerMobile,Uri.encode("#"));
+                        //confirmationMessage(ussd,message);
+                        mobileMoney.sendUSSD(ussd);
                     }
                 })
                 .setNegativeButton(R.string.cancel,
@@ -450,16 +451,29 @@ public class MobileMoneyEvent {
         alert.show();
 
     }
-
-
     public void watterBill() {
-
         LayoutInflater layoutInflater = LayoutInflater.from(view.getContext());
         final View promptView = layoutInflater.inflate(R.layout.water_payment, null);
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(view.getContext());
         alertDialogBuilder.setView(promptView);
 
         final EditText pinNumber =  promptView.findViewById(R.id.mypin);
+        final RadioButton fullPayment=promptView.findViewById(R.id.water_pay_info);
+        final RadioButton payment_info=promptView.findViewById(R.id.water_bill_info);
+        fullPayment.setChecked(true);
+        payment_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                water_bill_flag=1;
+            }
+        });
+        fullPayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                water_bill_flag=2;
+
+            }
+        });
 
 
         final Spinner agency=promptView.findViewById(R.id.agency);
@@ -476,9 +490,9 @@ public class MobileMoneyEvent {
                       //  String pass=editText.getText().toString();
                       //  String ussd= String.format("*%s*%s*%s%s",841,pass,1,Uri.encode("#"));
                         String USSD_TEXT="";
-
                         int selected_id=agency.getSelectedItemPosition();
                         String pos_values=agency.getItemAtPosition(selected_id).toString();
+
                        if(pos_values.equals("Adama City")){
 
                            USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,2,1,2,Uri.encode("#"));
@@ -489,7 +503,7 @@ public class MobileMoneyEvent {
 
                        }
                        else if(pos_values.equals("Amboo City")){
-                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,6,2,2,Uri.encode("#"));
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,6,2,water_bill_flag,Uri.encode("#"));
 
                            mobileMoney.sendUSSD(USSD_TEXT);
 
@@ -497,7 +511,17 @@ public class MobileMoneyEvent {
 
                         }
                         else if(pos_values.equals("Walliso City")){
-                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,1,6,1,2,Uri.encode("#"));
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,6,1,water_bill_flag,Uri.encode("#"));
+                           mobileMoney.sendUSSD(USSD_TEXT);
+                        }
+                        else if(pos_values.equals("Negele Borena")){
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,6,3,water_bill_flag,Uri.encode("#"));
+                           mobileMoney.sendUSSD(USSD_TEXT);
+                        }else if(pos_values.equals("Adola Town")){
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,6,4,water_bill_flag,Uri.encode("#"));
+                           mobileMoney.sendUSSD(USSD_TEXT);
+                        }else if(pos_values.equals("Shakiso Town")){
+                           USSD_TEXT=String.format("*%s*%s*%s*%s*%s*%s*%s%s",841,pinNumber.getText().toString(),4,2,6,5,water_bill_flag,Uri.encode("#"));
                            mobileMoney.sendUSSD(USSD_TEXT);
                         }
                         else{
